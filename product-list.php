@@ -23,5 +23,4 @@ include('functions.php');
   </table>
 </div>
 </body>
-<span class='glyphicon glyphicon-eye-open'></span>
 </html>

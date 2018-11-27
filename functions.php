@@ -26,7 +26,7 @@ function populate_product_list()
 function view_product($id)
 {
     include('connection.php');
-    $query = "SELECT * FROM Products WHERE id=".$id;
+    $query = 'SELECT * FROM Products WHERE id='.$id;
     $result = mysqli_query($con, $query);
     if (!$result) {
         die('Invalid query: ' . mysqli_error());
@@ -81,35 +81,49 @@ function delete_record($id)
 function populate_edit_list($id)
 {
     include('connection.php');
-    $query = "SELECT * FROM Products WHERE id=".$id;
+    $query = 'SELECT * FROM Products WHERE id='.$id;
     $result = mysqli_query($con, $query);
     if (!$result) {
         die('Invalid query: ' . mysqli_error());
     }
     while ($row = mysqli_fetch_array($result)) {
-        echo "
-        <tr>
-        <td>Product name: </td><td><input type='text' name='name' value=".$row['name']."></td>
-        </tr> 
-        <tr> 
-        <td>Description: </td><td><input type='text' name='desc' value=".$row['desc']."></td>  
-        </tr>
-        <tr>
-        <td>Category: </td><td><input type='text' name='category' value=".$row['category']."></td>
-        </tr>
-        <tr>
-        <td>Price: </td><td><input type='text' name='category' value=".$row['price']."></td>
-        </tr>
-        <tr>
-        <td>Availability: </td><td><input type='text' name='category' value=".$row['availability']."></td>
-        </tr>
-        <tr>
-        <td colspan= '2' align='right'>
-        <a href='controller.php?action=list' title='Back to list' data-toggle='tooltip'><input type='submit' class='btn btn-primary' value='Back'></a>
-        <a href='controller.php?action=save' title='Back to list' data-toggle='tooltip'><input type='submit' class='btn btn-success' value='Save'></a>
-        </td>
-        </tr>";
+        echo
+        "<form><table class='table align-left'>
+       <tr><td>
+        <textarea rows='1' cols='20' name='name'>
+        ".$row['name']."
+        </textarea>
+        </td></tr>
+        <tr><td>
+        <textarea rows='1' cols='20' name='category'>
+        ".$row['category']."
+        </textarea>
+        </td></tr>
+        <tr><td>
+        <textarea rows='1' cols='20' name='availability'>
+        ".$row['availability']."
+        </textarea>
+        </td></tr>
+        <tr><td>
+        <textarea rows='1' cols='20' name='price'>
+        ".$row['price']." $ 
+        </textarea>
+        </td></tr>
+        <tr><td>
+        <textarea rows='7' cols='80'>
+        ".$row['desc']."
+        </textarea>
+        </td></tr>
+        <tr><td>
+        <input type= 'submit' class='btn btn-success' name='save' value='Save'> 
+        <input type='submit' class='btn btn-info' value='Edit'> 
+        <input type='submit' class='btn btn-secondary' value='Cancel'>
+        </td></tr>
+        </table>
+        </form>
+        ";
     }
     mysqli_close($con);
 }
+
 ?>

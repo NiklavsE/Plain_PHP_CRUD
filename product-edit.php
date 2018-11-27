@@ -4,14 +4,14 @@ include('functions.php');
 ?>
 <body>
 <div class="container">
-<table class="table box"> 
 <h2> Product Edit </h2>
 <?php
-if ($_GET['id'] = null) {
-    header("Location:http://localhost:8080/controller.php?action=list");
+populate_edit_list($_GET['id']);
+
+if (isset($_POST['save'])) {
+    echo $_POST['name'];
 }
-populate_edit_list($_GET['id']); ?>
-</table>
+?>
 </div>
 </body>
 </html>

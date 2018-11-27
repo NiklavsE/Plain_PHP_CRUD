@@ -15,17 +15,17 @@ switch ($controller) {
     case 'product':
         switch ($action) {
             case 'view':
-                header('Location:http://localhost:8080/product-view.php?id='.$id);
+                header('Location:http://localhost:8000/product-view.php?id='.$id);
                 exit();
             case 'edit':
-                header("Location:http://localhost:8080/product-edit.php?id=".$id);
+                header("Location:http://localhost:8000/product-edit.php?id=".$id);
                 exit();
             case 'delete':
                 delete_record($id);
-                header("Location:http://localhost:8080/product-list.php");
+                header("Location:http://localhost:8000/product-list.php");
                 exit();
             case 'list':
-                header("Location:http://localhost:8080/product-list.php");
+                header("Location:http://localhost:8000/product-list.php");
                 exit();
             case 'add':
             
