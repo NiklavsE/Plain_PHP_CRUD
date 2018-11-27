@@ -11,9 +11,7 @@ include('functions.php');
         <th>Product ID</th>
         <th>Name</th>
         <th>Category</th>
-        <th>Description</th>
         <th>Price</th>
-        <th>Availability</th>
         <th>Actions</th>
       </tr>
     </thead>
@@ -25,4 +23,5 @@ include('functions.php');
   </table>
 </div>
 </body>
+<span class='glyphicon glyphicon-eye-open'></span>
 </html>
