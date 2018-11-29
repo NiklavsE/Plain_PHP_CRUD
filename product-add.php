@@ -5,6 +5,7 @@ include('functions.php');
 <body>
 <div class="container">
 <h2> Product Add </h2>
+
 <form method='POST'>
     <table class='table align-left'>
        <tr><td>
@@ -36,10 +37,13 @@ include('functions.php');
         </td></tr>
         <tr><td>
         <input type= 'submit' class='btn btn-success' name='save' value='Save'> 
-        <a href='controller.php?action=list' title='Cancel' data-toggle='tooltip'><input type='submit' class='btn btn-secondary' name = 'cancel' value='Cancel'></a> 
-        </td></tr>
+        </form>
+        </tr></td>
 </table>
-</form>
+
+
+
+
 <?php
 
 if (isset($_POST['save']) && $_POST['name'] && $_POST['desc'] && $_POST['category'] && $_POST['price'] && $_POST['availability']) {

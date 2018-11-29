@@ -7,6 +7,5 @@ include('functions.php');
 <div class="container">
 <h1> Product view </h2>
 <?php view_product($_GET['id']) ;?>
-</div>
 </body>
 </html>

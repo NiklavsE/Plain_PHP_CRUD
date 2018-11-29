@@ -33,30 +33,25 @@ function view_product($id)
     }
     while ($row = mysqli_fetch_array($result)) {
         echo"
+        <div class='col' style='border: 1px solid black'>
         <div class='row'> 
-        <div class='col'>
         ".$row['name']."
         </div>
-        <div class='col'>
+        <div class='row'>
         ".$row['category']."
         </div>
-        <div class='col'>
+        <div class='row'>
         ".$row['availability']."
         </div>
-        <div class='col'>
+        <div class='row'>
         ".$row['price']." $ 
         </div>
-        </div> 
         <div class='row'>
-        <div class='col'>
-        ".$row['desc']." 
-        </div>
+        ".$row['descr']." 
         </div>
         <div class='row'>
-        <div class='col'>
-        <input type= 'submit' class='btn btn-success' value='Save'> 
-        <input type='submit' class='btn btn-info' value='Edit'> 
-        <input type='submit' class='btn btn-secondary' value='Cancel'>
+        <a href='controller.php?action=edit&&id=".$row['id']."' title='Cancel' data-toggle='tooltip'><input type='submit' class='btn btn-info' value='Edit'></a> 
+        <a href='controller.php?action=list' title='Cancel' data-toggle='tooltip'><input type='submit' class='btn btn-secondary' value='Cancel'></a>
         </div> 
         </div>
         ";
