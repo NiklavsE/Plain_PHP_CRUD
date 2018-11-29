@@ -17,7 +17,11 @@ if (isset($_POST['save']) && $_POST['name'] && $_GET['id'] && $_POST['desc'] && 
     $availability = $_POST['availability'];
     save_edit($id, $name, $desc, $category, $price, $availability);
 }
-?>
+if (isset($_POST['cancel'])) {
+    header('Location:/controller.php?action=list');
+}
+
+?> 
 </div>
 </body>
 </html>

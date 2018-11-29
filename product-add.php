@@ -37,10 +37,16 @@ include('functions.php');
         </td></tr>
         <tr><td>
         <input type= 'submit' class='btn btn-success' name='save' value='Save'> 
-        </form>
+        
+        <input type='submit' class='btn btn-secondary' name='cancel' value='Cancel'>
         </tr></td>
+</form>
 </table>
 <?php
+if (isset($_POST['cancel'])) {
+    header('Location:/controller.php?action=list');
+}
+
 
 if (isset($_POST['save']) && $_POST['name'] && $_POST['desc'] && $_POST['category'] && $_POST['price'] && $_POST['availability']) {
     $name = $_POST['name'];

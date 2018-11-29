@@ -1,4 +1,3 @@
-
 <?php
 
 function populate_product_list()
@@ -21,7 +20,6 @@ function populate_product_list()
         echo "<a href='controller.php?action=edit&&id=". $row['id'] ."' title='Edit Record' data-toggle='tooltip'><input type='submit' class='btn btn-info' value='Edit'></a>";
         echo '</td></tr>';
     }
-    mysqli_close($con);
 }
 function view_product($id)
 {
@@ -51,11 +49,10 @@ function view_product($id)
         </tr></td>
         <tr><td>
         <a href='controller.php?action=edit&&id=".$row['id']."' title='Cancel' data-toggle='tooltip'><input type='submit' class='btn btn-info' value='Edit'></a> 
-        <a href='controller.php?action=list' title='Cancel' data-toggle='tooltip'><input type='submit' class='btn btn-secondary' value='Cancel'></a> 
+        <a href='controller.php?action=list' title='Canc' data-toggle='tooltip'><input type='submit' class='btn btn-secondary' value='Cancel'></a> 
         </table>
         ";
     }
-    mysqli_close($con);
 }
 
 function delete_record($id)
@@ -66,7 +63,6 @@ function delete_record($id)
     if (!$result) {
         die('Invalid query: ' . mysqli_error());
     }
-    mysqli_close($con);
 }
 function populate_edit_list($id)
 {
@@ -96,13 +92,12 @@ function populate_edit_list($id)
         </td></tr>
         <tr><td>
         <input type= 'submit' class='btn btn-success' name='save' value='Save'> 
+        <input type='submit' name='cancel' class='btn btn-secondary' value='Cancel'>
         </td></tr>
         </form>
         </table>
-        
         ";
     }
-    mysqli_close($con);
 }
 function save_edit($id, $name, $desc, $category, $price, $availability)
 {
@@ -113,7 +108,6 @@ function save_edit($id, $name, $desc, $category, $price, $availability)
     if (!$result) {
         die('Invalid query: ' . mysqli_error());
     }
-    mysqli_close($con);
 }
 
 function save_add($name, $desc, $category, $price, $availability)
@@ -125,5 +119,3 @@ function save_add($name, $desc, $category, $price, $availability)
         die('Invalid query: ' . mysqli_error());
     }
 }
-
-?>
