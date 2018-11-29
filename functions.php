@@ -33,27 +33,26 @@ function view_product($id)
     }
     while ($row = mysqli_fetch_array($result)) {
         echo"
-        <div class='col' style='border: 1px solid black'>
-        <div class='row'> 
+        <table class='table'>
+        <tr><td>
         ".$row['name']."
-        </div>
-        <div class='row'>
+        </tr></td>
+        <tr><td>
         ".$row['category']."
-        </div>
-        <div class='row'>
+        </tr></td>
+        <tr><td>
         ".$row['availability']."
-        </div>
-        <div class='row'>
+        </tr></td>
+        <tr><td>
         ".$row['price']." $ 
-        </div>
-        <div class='row'>
+        </tr></td>
+        <tr><td>
         ".$row['descr']." 
-        </div>
-        <div class='row'>
+        </tr></td>
+        <tr><td>
         <a href='controller.php?action=edit&&id=".$row['id']."' title='Cancel' data-toggle='tooltip'><input type='submit' class='btn btn-info' value='Edit'></a> 
-        <a href='controller.php?action=list' title='Cancel' data-toggle='tooltip'><input type='submit' class='btn btn-secondary' value='Cancel'></a>
-        </div> 
-        </div>
+        <a href='controller.php?action=list' title='Cancel' data-toggle='tooltip'><input type='submit' class='btn btn-secondary' value='Cancel'></a> 
+        </table>
         ";
     }
     mysqli_close($con);
@@ -97,7 +96,6 @@ function populate_edit_list($id)
         </td></tr>
         <tr><td>
         <input type= 'submit' class='btn btn-success' name='save' value='Save'> 
-        <a href='controller.php?action=list' title='Cancel' data-toggle='tooltip'><input type='submit' class='btn btn-secondary' name = 'cancel' value='Cancel'></a> 
         </td></tr>
         </form>
         </table>

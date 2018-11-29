@@ -40,10 +40,6 @@ include('functions.php');
         </form>
         </tr></td>
 </table>
-
-
-
-
 <?php
 
 if (isset($_POST['save']) && $_POST['name'] && $_POST['desc'] && $_POST['category'] && $_POST['price'] && $_POST['availability']) {
