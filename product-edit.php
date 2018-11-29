@@ -8,8 +8,14 @@ include('functions.php');
 <?php
 populate_edit_list($_GET['id']);
 
-if (isset($_POST['save'])) {
-    echo $_POST['name'];
+if (isset($_POST['save']) && $_POST['name'] && $_GET['id'] && $_POST['desc'] && $_POST['category'] && $_POST['price'] && $_POST['availability']) {
+    $name = $_POST['name'];
+    $id = $_GET['id'];
+    $desc = $_POST['desc'];
+    $category = $_POST['category'];
+    $price = $_POST['price'];
+    $availability = $_POST['availability'];
+    save_edit($id, $name, $desc, $category, $price, $availability);
 }
 ?>
 </div>

@@ -28,15 +28,11 @@ switch ($controller) {
                 header("Location:http://localhost:8000/product-list.php");
                 exit();
             case 'add':
-            
-            
-            case 'back':
-
+                header("Location:http://localhost:8000/product-add.php");
+                exit();
             case 'save':
-
                 header("Location:http://localhost:8080/product-edit.php");
                 exit();
-            case 'cancel':
         }
         // no break
     case 'login':

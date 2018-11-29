@@ -62,10 +62,6 @@ function view_product($id)
         ";
     }
     mysqli_close($con);
-    /*
-<input type='submit' class='btn btn-primary' value='Back'>
-".$row['desc']."
-    */
 }
 
 function delete_record($id)
@@ -88,42 +84,53 @@ function populate_edit_list($id)
     }
     while ($row = mysqli_fetch_array($result)) {
         echo
-        "<form><table class='table align-left'>
+        "<form method='POST'><table class='table align-left'>
        <tr><td>
-        <textarea rows='1' cols='20' name='name'>
-        ".$row['name']."
-        </textarea>
+        <textarea style='resize:none' rows='2' cols='20' name='name'>".$row['name']."</textarea>
         </td></tr>
         <tr><td>
-        <textarea rows='1' cols='20' name='category'>
-        ".$row['category']."
-        </textarea>
+        <textarea style='resize:none' rows='2' cols='20' name='category'>".$row['category']."</textarea>
         </td></tr>
         <tr><td>
-        <textarea rows='1' cols='20' name='availability'>
-        ".$row['availability']."
-        </textarea>
+        <textarea style='resize:none' rows='2' cols='20' name='availability'>".$row['availability']."</textarea>
         </td></tr>
         <tr><td>
-        <textarea rows='1' cols='20' name='price'>
-        ".$row['price']." $ 
-        </textarea>
+        <textarea style='resize:none' rows='2' cols='20' name='price'>".$row['price']."</textarea>
         </td></tr>
         <tr><td>
-        <textarea rows='7' cols='80'>
-        ".$row['desc']."
-        </textarea>
+        <textarea style='resize:none' rows='7' cols='80' name='desc'>".$row['descr']."</textarea>
         </td></tr>
         <tr><td>
         <input type= 'submit' class='btn btn-success' name='save' value='Save'> 
-        <input type='submit' class='btn btn-info' value='Edit'> 
-        <input type='submit' class='btn btn-secondary' value='Cancel'>
+        <a href='controller.php?action=list' title='Cancel' data-toggle='tooltip'><input type='submit' class='btn btn-secondary' name = 'cancel' value='Cancel'></a> 
         </td></tr>
-        </table>
         </form>
+        </table>
+        
         ";
     }
     mysqli_close($con);
+}
+function save_edit($id, $name, $desc, $category, $price, $availability)
+{
+    include('connection.php');
+    $query = "UPDATE Products SET name='$name', descr='$desc', category='$category', price=$price, availability='$availability' WHERE id=".$id;
+    $result = mysqli_query($con, $query);
+    header("Refresh:0");
+    if (!$result) {
+        die('Invalid query: ' . mysqli_error());
+    }
+    mysqli_close($con);
+}
+
+function save_add($name, $desc, $category, $price, $availability)
+{
+    include('connection.php');
+    $query = "INSERT INTO Products(name,descr,category,price,availability) VALUES('$name', '$desc', '$category', $price, '$availability')";
+    $result = mysqli_query($con, $query);
+    if (!$result) {
+        die('Invalid query: ' . mysqli_error());
+    }
 }
 
 ?>
