@@ -1,6 +1,9 @@
-<?php include_once('bootstrap/bootstrap_init.html');
-include('functions.php');
+<?php
+require_once('bootstrap/bootstrap_init.html');
+require_once('functions.php');
+require_once('header.php');
 ?>
+
 <body>
 <div class="container">
   <h2>Product table</h2>     
@@ -23,5 +26,5 @@ include('functions.php');
     </tbody>
   </table>
 </div>
-</body>
-</html>
+
+<?php require_once('footer.php'); ?>

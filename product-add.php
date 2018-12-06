@@ -1,11 +1,11 @@
 <?php
-include_once('bootstrap/bootstrap_init.html');
-include('functions.php');
+require_once('bootstrap/bootstrap_init.html');
+require_once('functions.php');
+require_once('header.php');
 ?>
 <body>
 <div class="container">
 <h2> Product Add </h2>
-
 <form method='POST'>
     <table class='table align-left'>
        <tr><td>
@@ -47,7 +47,6 @@ if (isset($_POST['cancel'])) {
     header('Location:/controller.php?action=list');
 }
 
-
 if (isset($_POST['save']) && $_POST['name'] && $_POST['desc'] && $_POST['category'] && $_POST['price'] && $_POST['availability']) {
     $name = $_POST['name'];
     $desc = $_POST['desc'];
@@ -57,6 +56,5 @@ if (isset($_POST['save']) && $_POST['name'] && $_POST['desc'] && $_POST['categor
     save_add($name, $desc, $category, $price, $availability);
 }
 
+require_once('footer.php');
 ?>
-</body>
-</html>

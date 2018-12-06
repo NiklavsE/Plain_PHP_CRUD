@@ -23,29 +23,36 @@ include('functions.php');
 switch ($controller) {
     case 'product':
         switch ($action) {
+
             case 'view':
-                header('Location:http://localhost:8000/product-view.php?id='.$id);
+                $_GET['id'] = $id;
+                include('product-view.php');
                 exit();
+
             case 'edit':
-                header("Location:http://localhost:8000/product-edit.php?id=".$id);
+                $_GET['id'] = $id;
+                include('product-edit.php');
                 exit();
+
             case 'delete':
                 if (isset($_POST['action']) && $_POST['action'] == 'delete') {
                     if (isset($_POST['id']) && is_int($_POST['id'])) {
                         delete_record($id);
                     }
                 }
-                header("Location:http://localhost:8000/product-list.php");
+                header("Refresh:0");
                 exit();
+
             case 'add':
-                header("Location:http://localhost:8000/product-add.php");
+                include('product-add.php');
                 exit();
+
             case 'save':
-                header("Location:http://localhost:8080/product-edit.php");
+                include('product-edit.php');
                 exit();
-            case 'list':
+                
             default:
-                header("Location:http://localhost:8000/product-list.php");
+                include('product-list.php');
                 exit();
         }
         // no break

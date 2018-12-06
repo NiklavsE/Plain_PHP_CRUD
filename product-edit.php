@@ -1,6 +1,7 @@
 <?php
 include_once('bootstrap/bootstrap_init.html');
-include('functions.php');
+require_once('functions.php');
+require_once('header.php');
 ?>
 <body>
 <div class="container">
@@ -23,5 +24,4 @@ if (isset($_POST['cancel'])) {
 
 ?> 
 </div>
-</body>
-</html>
+<?php require_once('footer.php'); ?>
