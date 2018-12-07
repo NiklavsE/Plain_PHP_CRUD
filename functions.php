@@ -16,8 +16,9 @@ function populate_product_list()
         echo "<td>" . $row['price'] . " $</td>";
         echo "<td align='center'>";
         echo "<a href='controller.php?action=view&&id=". $row['id'] ."' title='View Record' data-toggle='tooltip'><input type='submit' class='btn btn-primary' value='View'></a>  ";
-        echo "<form method='POST'><input type='hidden' name='id' value=".$row['id']."><input type='submit' class='btn btn-danger' name='Delete_record' value='Delete'></form>";
         echo "<a href='controller.php?action=edit&&id=". $row['id'] ."' title='Edit Record' data-toggle='tooltip'><input type='submit' class='btn btn-info' value='Edit'></a>";
+        echo "</td><td align='center'>";
+        echo "<form method='POST'><input type='hidden' name='id' value=".$row['id']."></input><input type='submit' class='btn btn-danger' name='Delete_record' value='Delete'></form>";
         echo '</td></tr>';
     }
 }

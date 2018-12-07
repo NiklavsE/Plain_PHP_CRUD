@@ -33,16 +33,12 @@ switch ($controller) {
                 $_GET['id'] = $id;
                 include('product-edit.php');
                 exit();
-
+            /*
             case 'delete':
-                if (isset($_POST['action']) && $_POST['action'] == 'delete') {
-                    if (isset($_POST['id']) && is_int($_POST['id'])) {
-                        delete_record($id);
-                    }
-                }
+
                 header("Refresh:0");
                 exit();
-
+            */
             case 'add':
                 include('product-add.php');
                 exit();
