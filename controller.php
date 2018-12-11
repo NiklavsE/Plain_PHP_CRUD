@@ -25,7 +25,8 @@ switch ($controller) {
         switch ($action) {
 
             case 'view':
-                $_GET['id'] = $id;
+                $_GET['id']
+                = $id;
                 include('product-view.php');
                 exit();
 
@@ -33,12 +34,12 @@ switch ($controller) {
                 $_GET['id'] = $id;
                 include('product-edit.php');
                 exit();
-            /*
+                
             case 'delete':
-
+                //delete_record($_POST['id']);
                 header("Refresh:0");
                 exit();
-            */
+                
             case 'add':
                 include('product-add.php');
                 exit();

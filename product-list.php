@@ -1,6 +1,6 @@
 <?php
 require_once('bootstrap/bootstrap_init.html');
-require('functions.php');
+require_once('functions.php');
 require_once('header.php');
 ?>
 
@@ -34,15 +34,17 @@ require_once('header.php');
     </tbody>
   </table>
 </div>
+<script type="text/javascript">
 
+
+
+</script>
 <?php
+
 if (isset($_POST['Delete_record']) && isset($_POST['id']) && is_int($_POST['id'])) {
-    delete_record($_POST['id']);
-    header("Refresh:0");
-};
+    //delete_record($_POST['id']);
+    //header("Refresh:0");
+}
 
-
-
-
-
-require_once('footer.php'); ?>
+require_once('footer.php');
+?>
