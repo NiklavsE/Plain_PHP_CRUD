@@ -12,6 +12,7 @@ require_once('header.php');
         Product name
         </td><td>
         <textarea style='resize:none' rows='2' cols='20' name='name'></textarea>
+        <span class="error">* <?php echo $nameErr;?></span>
         </td></tr>
         <tr><td>
         Category
@@ -24,12 +25,10 @@ require_once('header.php');
         <textarea style='resize:none' rows='2' cols='20' name='availability'></textarea>
         </td></tr>
         <tr><td>
-        <tr><td>
         Price
         </td><td>
         <textarea style='resize:none' rows='2' cols='20' name='price'></textarea>
         </td></tr>
-        <tr><td>
         <tr><td>
         Description
         </td><td>
@@ -37,11 +36,11 @@ require_once('header.php');
         </td></tr>
         <tr><td>
         <input type= 'submit' class='btn btn-success' name='save' value='Save'> 
-        
         <input type='submit' class='btn btn-secondary' name='cancel' value='Cancel'>
         </tr></td>
 </form>
 </table>
+</div>
 <?php
 if (isset($_POST['cancel'])) {
     header('Location:/controller.php?action=list');
@@ -53,8 +52,35 @@ if (isset($_POST['save']) && $_POST['name'] && $_POST['desc'] && $_POST['categor
     $category = $_POST['category'];
     $price = $_POST['price'];
     $availability = $_POST['availability'];
-    save_add($name, $desc, $category, $price, $availability);
+    
+    if (empty($name)) {
+        $nameErr = "Name is requiered";
+    } else {
+        $name=test_input($name);
+    }
+    if (empty($desc)) {
+        $descErr = "Description is required";
+    } else {
+        $name=test_input($desc);
+    }
+    if (empty($category)) {
+        $categoryErr = "Category is required";
+    } else {
+        $name=test_input($category);
+    }
+    if (empty($price)) {
+        $priceErr = "Description is required";
+    } else {
+        $price=test_input($price);
+    }
+    if (empty($availability)) {
+        $pavailabilityErr = "Description is required";
+    } else {
+        $price=test_input($availability);
+    }
 }
+    //save_add($name, $desc, $category, $price, $availability);
+
 
 require_once('footer.php');
 ?>
