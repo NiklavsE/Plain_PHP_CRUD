@@ -2,11 +2,14 @@
 require_once('bootstrap/bootstrap_init.html');
 require_once('functions.php');
 require_once('header.php');
+session_start();
+echo $_SESSION['username'];
 ?>
 
 <body>
 <div class="container">
 <div class="row">
+<a href='controller.php?controller=authorization&&action=logoff'><input type='submit' class='btn btn-danger topright' value='LOG OUT' name='logout'/></a>
   <div class="col-sm-10">  
     <h2>Product table</h2>     
     <p>list of products</p> 
@@ -17,6 +20,7 @@ require_once('header.php');
     </a> 
   </div>
 </div>
+
   <table class="table table-bordered table-striped">
     <thead>
       <tr>

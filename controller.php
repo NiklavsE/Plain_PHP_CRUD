@@ -1,6 +1,9 @@
 <?php
 
 $debug = false;
+session_start();
+
+
 
 if ($debug) {
     var_dump($_GET);
@@ -53,9 +56,24 @@ switch ($controller) {
                 exit();
         }
         // no break
-    case 'login':
+    case 'authorization':
+        switch ($action) {
+            case 'logon':
+            include('login.php');
+            exit();
 
+            case 'register':
+            /////////////////
+            exit();
+
+            case 'logoff':
+                session_destroy();
+                include('login.php');
+                exit();
+        }
+        // no break
     default:
+        
     }
 ?>
 </div>

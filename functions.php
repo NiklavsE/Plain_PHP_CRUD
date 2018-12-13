@@ -122,3 +122,40 @@ function save_add($name, $desc, $category, $price, $availability)
         die('Invalid query: ' . mysqli_error());
     }
 }
+function test_input($data)
+{
+    $data = trim($data);
+    $data = stripslashes($data);
+    $data = htmlspecialchars($data);
+    return $data;
+}
+
+function log_in($username, $password)
+{
+    include('connection.php');
+    $query ="SELECT hash FROM Users WHERE username = '$username'";
+    $result = mysqli_query($con, $query);
+    if (!$result) {
+        die('Invalid query: ' . mysqli_error());
+    }
+
+    if (mysqli_num_rows($result)==1 && password_verify($password, mysqli_fetch_array($result)['hash']) == 1) {
+        return true;
+    } else {
+        return false;
+    }
+}
+function is_super_user($username)
+{
+    include('connection.php');
+    $query = "SELECT SU FROM Users WHERE username = '$username'";
+    $result = mysqli_query($con, $query);
+    if (!$result) {
+        die('Invalid query: ' . mysqli_error());
+    }
+    if (mysqli_fetch_array($result)['SU'] == 1) {
+        return true;
+    } else {
+        return false;
+    }
+}
