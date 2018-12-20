@@ -15,10 +15,9 @@ function populate_product_list()
         echo "<td>" . $row['category'] . "</td>";
         echo "<td>" . $row['price'] . " $</td>";
         echo "<td align='center'>";
-        echo "<a href='controller.php?action=view&&id=". $row['id'] ."' title='View Record' data-toggle='tooltip'><input type='submit' class='btn btn-primary' value='View'></a>  ";
-        echo "<a href='controller.php?action=edit&&id=". $row['id'] ."' title='Edit Record' data-toggle='tooltip'><input type='submit' class='btn btn-info' value='Edit'></a>";
+        echo "<a href='controller.php?controller=product&&action=view&&id=". $row['id'] ."' title='View Record' data-toggle='tooltip'><input type='submit' class='btn btn-primary' value='View'></a>  ";
+        echo "<a href='controller.php?controller=product&&action=edit&&id=". $row['id'] ."' title='Edit Record' data-toggle='tooltip'><input type='submit' class='btn btn-info' value='Edit'></a>";
         echo "</td><td align='center'>";
-        include('test.html');
         echo "<form method='POST'  onsubmit='return confirm('Do you really want to submit the form?');'>
         <input type='hidden' name='id' value=".$row['id']."></input><input type='submit' class='btn btn-danger' name='Delete_record' value='Delete' ></form>";
         echo '</td></tr>';
@@ -51,8 +50,8 @@ function view_product($id)
         ".$row['descr']." 
         </tr></td>
         <tr><td>
-        <a href='controller.php?action=edit&&id=".$row['id']."' title='Cancel' data-toggle='tooltip'><input type='submit' class='btn btn-info' value='Edit'></a> 
-        <a href='controller.php?action=list' title='Canc' data-toggle='tooltip'><input type='submit' class='btn btn-secondary' value='Cancel'></a> 
+        <a href='controller.php?controller=product&&action=edit&&id=".$row['id']."' title='Cancel' data-toggle='tooltip'><input type='submit' class='btn btn-info' value='Edit'></a> 
+        <a href='controller.php?controller=product&&action=list' title='Canc' data-toggle='tooltip'><input type='submit' class='btn btn-secondary' value='Cancel'></a> 
         </table>
         ";
     }
@@ -158,4 +157,15 @@ function is_super_user($username)
     } else {
         return false;
     }
+}
+function register_user($username, $password)
+{
+    include('connection.php');
+    $hash = password_hash($password, PASSWORD_DEFAULT);
+
+    $query = "INSERT INTO Users VALUES('$username','$hash','NU')";
+    if (!$result) {
+        die('Invalid query: ' . mysqli_error());
+    }
+    return true;
 }

@@ -104,7 +104,7 @@ if (isset($_POST['save'])) {
 </div>
 <?php
 if (isset($_POST['cancel'])) {
-    header('Location:/controller.php?action=list');
+    header('Location:/controller.php?controller=product&&action=list');
 }
 
 require_once('footer.php');

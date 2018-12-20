@@ -11,8 +11,8 @@ if ($debug) {
     var_dump($_SERVER);
 }
 
-$controller = (isset($_GET['controller'])) ? $_GET['controller'] : 'product';
-$action = (isset($_GET['action'])) ? $_GET['action'] : null;
+$controller = (isset($_GET['controller'])) ? $_GET['controller'] : 'authorization';
+$action = (isset($_GET['action'])) ? $_GET['action'] : 'logon';
 $id = (isset($_GET['id'])) ? $_GET['id'] : null;
 
 if ($debug) {
@@ -21,6 +21,8 @@ if ($debug) {
     echo $controller;
 }
 
+
+
 include('functions.php');
 
 switch ($controller) {
@@ -28,8 +30,7 @@ switch ($controller) {
         switch ($action) {
 
             case 'view':
-                $_GET['id']
-                = $id;
+                $_GET['id'] = $id;
                 include('product-view.php');
                 exit();
 
@@ -63,7 +64,7 @@ switch ($controller) {
             exit();
 
             case 'register':
-            /////////////////
+            include('register.php');
             exit();
 
             case 'logoff':

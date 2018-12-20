@@ -19,7 +19,7 @@ if (isset($_POST['save']) && $_POST['name'] && $_GET['id'] && $_POST['desc'] && 
     save_edit($id, $name, $desc, $category, $price, $availability);
 }
 if (isset($_POST['cancel'])) {
-    header('Location:/controller.php?action=list');
+    header('Location:/controller.php?controller=product&&action=list');
 }
 
 ?> 

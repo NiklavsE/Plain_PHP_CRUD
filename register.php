@@ -4,20 +4,16 @@ require_once('functions.php');
 require_once('header.php');
 require_once('footer.php');
 
-$msg = '';
+
 if (isset($_POST['login']) && isset($_POST['password']) && isset($_POST['username'])) {
     $username = $_POST['username'];
     $password = $_POST['password'];
-    if (log_in($username, $password) == true) {
-        session_start();
-        $_SESSION['username'] = $username;
-        (is_super_user($username, $hash) == true) ? $_SESSION['priviliges'] = 'SU' : $_SESSION['priviliges'] = 'NU';
-        header('LOCATION:/controller.php?controller=product');
-    } else {
-        $msg = 'invalid user name or password';
+    if (register_user($username, $password) == true) {
+        header("LOCATION:controller.php?controller=product");
     }
-}
-
+    else { 
+        $msg = 'Something went wrong';
+    }
 ?>
 <link rel="stylesheet" href="styles/login_styles.css">
 <div class="container">	

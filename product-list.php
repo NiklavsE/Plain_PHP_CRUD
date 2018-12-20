@@ -15,7 +15,7 @@ echo $_SESSION['username'];
     <p>list of products</p> 
   </div>
   <div class="col-sm-2"> 
-    <a href='controller.php?action=add' title='Add product' data-toggle='tooltip'>
+    <a href='controller.php?controller=product&&action=add' title='Add product' data-toggle='tooltip'>
   <input type='submit' class='btn btn-success topright' value='Add Product'>
     </a> 
   </div>
