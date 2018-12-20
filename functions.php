@@ -87,7 +87,7 @@ function populate_edit_list($id)
         <textarea style='resize:none' rows='2' cols='20' name='availability'>".$row['availability']."</textarea>
         </td></tr>
         <tr><td>
-        <textarea style='resize:none' rows='2' cols='20' name='price'>".$row['price']."</textarea>
+        <input type='number' name='price' value =".$row['price'].">
         </td></tr>
         <tr><td>
         <textarea style='resize:none' rows='7' cols='80' name='desc'>".$row['descr']."</textarea>
