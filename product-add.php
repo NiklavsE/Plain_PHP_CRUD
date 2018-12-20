@@ -6,8 +6,6 @@ require_once('header.php');
 
 if (isset($_POST['save'])) {
 
-    // $_POST['name'] && $_POST['desc'] && $_POST['category'] && $_POST['price'] && $_POST['availability']) {
-
     $is_approved = true;
     $name = $_POST['name'];
     $desc = $_POST['desc'];
@@ -47,25 +45,23 @@ if (isset($_POST['save'])) {
     }
 }
 
-    if ($is_approved ==  true) {
-        save_add($name, $desc, $category, $price, $availability);
-        $name = "";
-        $desc = "";
-        $category = "";
-        $availability = "";
-        $price = null;
-    }
-
-
-
+if ($is_approved ==  true) {
+    save_add($name, $desc, $category, $price, $availability);
+    $name = "";
+    $desc = "";
+    $category = "";
+    $availability = "";
+    $price = null;
+}
 ?>
+
 <body>
 <div class="container">
 <h2> Add a Product </h2>
 <p> All fields are required  </p>
 <form method='POST'>
     <table class='table align-left'>
-       <tr><td>
+        <tr><td>
         Product name
         </td><td>
         <textarea style='resize:none' rows='2' cols='20' name='name'><?php echo $name;?></textarea>
@@ -102,6 +98,7 @@ if (isset($_POST['save'])) {
 </form>
 </table>
 </div>
+
 <?php
 if (isset($_POST['cancel'])) {
     header('Location:/controller.php?controller=product&&action=list');

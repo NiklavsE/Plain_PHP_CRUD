@@ -38,12 +38,7 @@ switch ($controller) {
                 $_GET['id'] = $id;
                 include('product-edit.php');
                 exit();
-            /*
-            case 'delete':
-                delete_record($_POST['id']);
-                header("Refresh:0");
-                exit();
-            */
+
             case 'add':
                 include('product-add.php');
                 exit();
@@ -60,6 +55,10 @@ switch ($controller) {
     case 'authorization':
         switch ($action) {
             case 'logon':
+            if (isset($_SESSION['username'])) {
+                include('product-list.php');
+                exit();
+            }
             include('login.php');
             exit();
 

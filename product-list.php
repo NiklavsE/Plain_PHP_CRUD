@@ -16,10 +16,10 @@ echo $_SESSION['username'];
   </div>
   <div class="col-sm-2"> 
     <a href='controller.php?controller=product&&action=add' title='Add product' data-toggle='tooltip'>
-  <input type='submit' class='btn btn-success topright' value='Add Product'>
+    <input type='submit' class='btn btn-success topright' value='Add Product'>
     </a> 
   </div>
-</div>
+  </div>
 
   <table class="table table-bordered table-striped">
     <thead>
@@ -37,12 +37,12 @@ echo $_SESSION['username'];
     </tr>
     </tbody>
   </table>
-</div>
+  </div>
 <?php
 
 if (isset($_POST['Delete_record']) && isset($_POST['id']) && intval($_POST['id']) != 0) {
     delete_record($_POST['id']);
-    header("Refresh:0");
+    header("Location:controller.php?controller=product");
 }
 
 require_once('footer.php');
